@@ -1,0 +1,195 @@
+@import '../../constants/styles.scss';
+
+.movies-list {
+	list-style: none;
+
+	.movies-list-item {
+		display: flex;
+		position:	relative;
+		flex-direction: column;
+		margin: 4 * $grid-step;
+		color: $color-font-main;
+		font-family: $font-text;
+
+		h1, h2, h3, p {
+			text-align: left;
+		}
+
+		h1 {
+			font-size: 	1.3em;
+			font-weight: normal;
+			color: $color-font-active;
+			margin-bottom: $grid-step;
+		}
+
+		h2 {
+			font-size: 	0.9em;
+			font-weight: normal;
+		}
+
+		h3 {
+			font-size: 	0.8em;
+		}
+
+		p {
+			font-size: 	0.7em;	
+		}
+
+		.movies-list-item-main-content-backdrop {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-color: $black-russian;
+			background-position: center center;
+		}
+
+		.movies-list-item-main-content {
+			display: flex;
+			@include box-shadow-common;
+			backdrop-filter: blur(2 * $grid-step);
+
+			.movies-list-item-poster {
+				width: 154px;
+				height: 231px;
+				cursor: pointer;
+				transform: rotate(-2deg);
+				@include box-shadow-common;
+				transition: all 0.3s ease-in-out;
+				background-color: $color-font-main;
+
+				right: -2em;
+				position: relative;
+
+				&:hover {
+					transform: rotate(0deg);
+				}
+
+				img {
+					height: 100%;
+				}
+			}
+
+			.movies-list-item-main-text {
+				flex-grow: 1;
+				display: flex;
+				flex-direction: column;
+				margin: 4 * $grid-step;
+				background-color: $jaguar;
+				@include box-shadow-common;
+				justify-content: space-between;
+				padding: 3 * $grid-step 6 * $grid-step;
+
+				.movies-list-item-main-text-bottom {
+					display: flex;
+					align-items: flex-start;
+					align-content: flex-start;
+					flex-flow: row wrap-reverse;
+					justify-content: space-between;
+
+					.movies-list-toggle-expanded-content {
+						cursor: pointer;
+						text-align: center;
+						color: $black-russian;
+						font-size: 5 * $grid-step;
+						height: 3.25 * $grid-step;
+						width: 3.25 * $grid-step;
+						background-color: $blue-bell;
+						border-radius: 5 * $grid-step;
+
+						transform: rotate(180deg);
+						transition: all 0.3s ease-in-out;
+
+						&.expanded {
+							transform: rotate(0deg);
+						}
+
+						&:before {
+							content: '\21E7';
+						}
+					}
+
+					.movies-list-genre-tags {
+						display:flex;
+  						flex-flow: row wrap;
+
+						.movies-genre-tag {
+							white-space: nowrap;
+							font-size: 2 * $grid-step;
+							color: $color-font-active;
+							margin-bottom: 1.5 * $grid-step;
+							border-radius: 2.5 * $grid-step;
+							background-color: $medium-purple;
+							padding: $grid-step 1.5 * $grid-step;
+
+							&:not(:last-child) {
+								margin-right: $grid-step;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.movies-list-item-expanded-content {
+			max-height: 0;
+			overflow: hidden;
+			transition: all 0.6s ease-in-out;
+			backdrop-filter: blur(2 * $grid-step) grayscale(1);
+
+			&.expanded {
+				max-height: $max-height;
+
+				.movies-list-item-expanded-content-section {
+					max-height: $max-height;
+				}
+			}
+
+			.movies-trailer-list {
+				object {
+					border: none;
+					@include box-shadow-common;
+
+					&:not(:last-child) {
+						margin-right: 4 * $grid-step;
+					}
+				}
+			}
+
+			.movies-review-list {
+				p {
+					margin: 2.5 * $grid-step 0;
+
+					&:not(:last-child) {
+						padding-bottom: 2.5 * $grid-step;
+						border-bottom: $grid-step / 4 solid $color-font-main;
+					}
+				}
+			}
+
+			.movies-similar-list {
+				img {
+					cursor: pointer;
+					@include box-shadow-common;
+					transition: all 0.3s ease-in;
+
+					&:hover {
+						transform: scale(1.2);
+					}
+
+					&:not(:last-child) {
+						margin-right: 4 * $grid-step;
+					}
+				}
+			}
+
+			.movies-list-item-expanded-content-section {
+				max-height: 0;
+				margin: 4 * $grid-step;
+				background-color: $jaguar;
+				@include box-shadow-common;
+				transition: all 0.6s ease-in-out;
+				padding: 3 * $grid-step 6 * $grid-step;
+			}
+		}
+	}
+}

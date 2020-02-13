@@ -1,0 +1,26 @@
+@import './constants/styles';
+
+html, body, div, h1, h2, h3, ul, li, a, img, input {
+	margin: 0;
+    padding: 0;
+    border: none;
+}
+
+html, body {
+	width: 100%;
+    font-size: 100%;
+    font-family: $font-main;
+    background-color: $jaguar;
+}
+
+#nav {
+	top: 0;
+	width: 100%;
+	position: fixed;
+	@include box-shadow-common;
+}
+
+#app {
+	top: 0.9em + 4 * $grid-step;
+	position: relative;
+}

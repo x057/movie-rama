@@ -1,0 +1,60 @@
+@import '../../constants/styles';
+
+.navigation {
+	display: flex;
+	background-color: $black-russian;
+
+	.navigation-item {
+		font-size: 0.9em;
+		padding: 2 * $grid-step;
+		color: $color-font-main;
+
+		a {
+			color: inherit;
+			padding: inherit;
+			text-decoration: none;
+			transition: all 0.3s ease-in-out;
+
+			&.active {
+				color: $color-font-active;
+			}
+
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+
+		&.search-box {
+			padding: 0;
+			flex-grow: 1;
+
+			&.active {
+				input {
+					opacity: 0.75;
+					color: $color-font-active;
+				}
+			}
+
+			input {
+				width: 100%;
+				opacity: 0.5;
+				background: none;
+				font-size: inherit;
+				font-style: italic;
+				font-weight: lighter;
+				padding: 2 * $grid-step;
+				color: $color-font-main;
+
+				&:focus {
+					outline: none;
+					border-bottom: 0.1em outset $color-font-active;
+				}
+
+				&::placeholder {
+					color: inherit;
+					opacity: inherit;
+				}
+			}
+		}
+	}
+}

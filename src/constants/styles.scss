@@ -1,0 +1,21 @@
+$grid-step: 0.4em;
+
+$max-height: 9999px;
+
+// Colors
+$jaguar: #222233;
+$blue-bell: #9999DD;
+$medium-purple: #8855DD;
+$black-russian: #1D1D2B;
+$black-russian-shadow: #111122;
+
+$color-font-main: #A6AAD1;
+$color-font-active: #FFFFFF;
+
+// Fonts
+$font-main: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+$font-text: rounded, sans-serif;
+
+@mixin box-shadow-common {
+	box-shadow: 0 2 * $grid-step 4 * $grid-step 0 $black-russian-shadow;
+}
